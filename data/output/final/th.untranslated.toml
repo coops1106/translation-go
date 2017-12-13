@@ -1,0 +1,3 @@
+
+[your_unread_email_count]
+  other = "You have {{.Count}} unread emails."

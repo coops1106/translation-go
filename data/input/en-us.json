@@ -1,0 +1,14 @@
+[
+  {
+    "id": "program_greeting",
+    "translation": "Hi y'all"
+  },
+  {
+    "id": "question",
+    "translation": "What's your favorite color?"
+  },
+  {
+    "id": "answer",
+    "translation": "my favorite color is {{.colour}}"
+  }
+]

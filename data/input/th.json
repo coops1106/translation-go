@@ -1,0 +1,10 @@
+[
+  {
+    "id": "program_greeting",
+    "translation": "สวัสดี"
+  },
+  {
+    "id": "local_time",
+    "translation": "เวลาคือ {{.time}}"
+  }
+]

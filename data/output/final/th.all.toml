@@ -1,0 +1,18 @@
+
+[answer]
+  other = "my favourite colour is {{.colour}}"
+
+[currency]
+  other = "currency_symbol"
+
+[local_time]
+  other = "เวลาคือ {{.time}}"
+
+[program_greeting]
+  other = "สวัสดี"
+
+[question]
+  other = "What's your favourite colour?"
+
+[your_unread_email_count]
+  other = ""

@@ -1,0 +1,21 @@
+{
+  "answer": {
+    "other": "my favorite color is {{.colour}}"
+  },
+  "currency": {
+    "other": ""
+  },
+  "local_time": {
+    "other": ""
+  },
+  "program_greeting": {
+    "other": "Hi y'all"
+  },
+  "question": {
+    "other": "What's your favorite color?"
+  },
+  "your_unread_email_count": {
+    "one": "",
+    "other": ""
+  }
+}

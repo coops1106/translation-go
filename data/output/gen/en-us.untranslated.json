@@ -1,0 +1,12 @@
+{
+  "currency": {
+    "other": "currency_symbol"
+  },
+  "local_time": {
+    "other": "The time is {{.time}}"
+  },
+  "your_unread_email_count": {
+    "one": "You have {{.Count}} unread emails.",
+    "other": "You have {{.Count}} unread emails."
+  }
+}

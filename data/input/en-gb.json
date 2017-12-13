@@ -1,0 +1,25 @@
+[
+  {
+    "id": "program_greeting",
+    "translation": "Cup of tea?"
+  },
+  {
+    "id": "question",
+    "translation": "What's your favourite colour?"
+  },
+  {
+    "id": "answer",
+    "translation": "my favourite colour is {{.colour}}"
+  },
+  {
+    "id": "local_time",
+    "translation": "The time is {{.time}}"
+  },
+  {
+    "id": "your_unread_email_count",
+    "translation": {
+      "one": "You have {{.Count}} unread email.",
+      "other": "You have {{.Count}} unread emails."
+    }
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "answer": {
+    "other": "my favourite colour is {{.colour}}"
+  },
+  "question": {
+    "other": "What's your favourite colour?"
+  },
+  "your_unread_email_count": {
+    "other": "You have {{.Count}} unread emails."
+  }
+}
