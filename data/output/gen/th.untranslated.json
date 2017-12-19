@@ -2,8 +2,20 @@
   "answer": {
     "other": "my favourite colour is {{.colour}}"
   },
+  "basic_func_call_demo": {
+    "other": "{{printf \"%q\" (print \"out\" \"put\")}}"
+  },
+  "if_and_demo": {
+    "other": "{{if and .User .User.Admin}}You are an Admin{{else}}Access Denied{{end}}"
+  },
   "question": {
     "other": "What's your favourite colour?"
+  },
+  "sensor_problem_1": {
+    "other": "There's a problem with sensor {{.Sensor.GetName}}"
+  },
+  "sensor_problem_2": {
+    "other": "There's a problem with sensor {{call .Sensor.ResolveName .Sensor.Id}}"
   },
   "your_unread_email_count": {
     "other": "You have {{.Count}} unread emails."

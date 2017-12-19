@@ -2,7 +2,10 @@
   "answer": {
     "other": "my favorite color is {{.colour}}"
   },
-  "currency": {
+  "basic_func_call_demo": {
+    "other": ""
+  },
+  "if_and_demo": {
     "other": ""
   },
   "local_time": {
@@ -13,6 +16,15 @@
   },
   "question": {
     "other": "What's your favorite color?"
+  },
+  "sensor_problem_1": {
+    "other": ""
+  },
+  "sensor_problem_2": {
+    "other": ""
+  },
+  "sensor_problem_3": {
+    "other": ""
   },
   "your_unread_email_count": {
     "one": "",

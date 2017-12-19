@@ -2,8 +2,11 @@
   "answer": {
     "other": "my favourite colour is {{.colour}}"
   },
-  "currency": {
-    "other": "currency_symbol"
+  "basic_func_call_demo": {
+    "other": "{{printf \"%q\" (print \"out\" \"put\")}}"
+  },
+  "if_and_demo": {
+    "other": "{{if and .User .User.Admin}}You are an Admin{{else}}Access Denied{{end}}"
   },
   "local_time": {
     "other": "The time is {{.time}}"
@@ -13,6 +16,15 @@
   },
   "question": {
     "other": "What's your favourite colour?"
+  },
+  "sensor_problem_1": {
+    "other": "There's a problem with sensor {{.Sensor.GetName}}"
+  },
+  "sensor_problem_2": {
+    "other": "There's a problem with sensor {{call .Sensor.ResolveName .Sensor.Id}}"
+  },
+  "sensor_problem_3": {
+    "other": "There's a problem with sensor {{.sensorName}}"
   },
   "your_unread_email_count": {
     "one": "You have {{.Count}} unread email.",

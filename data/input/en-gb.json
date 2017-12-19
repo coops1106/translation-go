@@ -21,5 +21,25 @@
       "one": "You have {{.Count}} unread email.",
       "other": "You have {{.Count}} unread emails."
     }
+  },
+  {
+    "id": "basic_func_call_demo",
+    "translation": "{{printf \"%q\" (print \"out\" \"put\")}}"
+  },
+  {
+    "id": "if_and_demo",
+    "translation": "{{if and .User .User.Admin}}You are an Admin{{else}}Access Denied{{end}}"
+  },
+  {
+    "id": "sensor_problem_1",
+    "translation": "There's a problem with sensor {{.Sensor.GetName}}"
+  },
+  {
+    "id": "sensor_problem_2",
+    "translation": "There's a problem with sensor {{call .Sensor.ResolveName .Sensor.Id}}"
+  },
+  {
+    "id": "sensor_problem_3",
+    "translation": "There's a problem with sensor {{.sensorName}}"
   }
 ]

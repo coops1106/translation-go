@@ -6,5 +6,9 @@
   {
     "id": "local_time",
     "translation": "เวลาคือ {{.time}}"
+  },
+  {
+    "id": "sensor_problem_3",
+    "translation": "มีปัญหาเกี่ยวกับเซ็นเซอร์ {{.sensorName}}"
   }
 ]

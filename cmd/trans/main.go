@@ -6,11 +6,18 @@ import (
 	"io/ioutil"
 	"util/translationPOC/data/output/constants"
 	"time"
+	"html/template"
+	"os"
 )
 
 type Inventory struct {
 	Material string
 	Count    uint
+}
+
+type Sensor struct {
+	Id string
+	ResolveName func(id string) string
 }
 
 const translationFilesDir = "./data/output/final"
@@ -45,11 +52,83 @@ func main() {
 	args["time"] = timeToLocation(t, "Asia/Bangkok")
 	fmt.Println(thai(constants.LocalTime, args))
 
+	//Handling Plurals
 	fmt.Println(gb(constants.YourUnreadEmailCount, 0))
 	fmt.Println(gb(constants.YourUnreadEmailCount, 1))
 	fmt.Println(gb(constants.YourUnreadEmailCount, 2))
 
+	//Condition Demo
+	args = make(map[string]interface{})
+	user := make(map[string]interface{})
+	fmt.Println(gb(constants.IfAndDemo, args)) //Denied
+	args["User"] = user
+	fmt.Println(gb(constants.IfAndDemo, args)) //Denied
+	user["Admin"] = true
+	fmt.Println(gb(constants.IfAndDemo, args)) //You are an admin
 
+	//Use functions
+	s := Sensor{Id:"abcd"}
+	args["Sensor"] = s
+	fmt.Println(gb(constants.SensorProblem1, args)) //There's a problem with sensor Uncool sensor
+
+	s = Sensor{Id:"1234"}
+	args["Sensor"] = s
+	fmt.Println(gb(constants.SensorProblem1, args)) //There's a problem with sensor Cool sensor
+
+	//Use Dynamic functions
+	s = Sensor{
+		Id: "tttt",
+		ResolveName: func(id string) string {
+			if id == "asdf" {
+				return "Power sensor"
+			}
+			return "Rubbish sensor"
+		},
+	}
+	args["Sensor"] = s
+	fmt.Println(gb(constants.SensorProblem2, args)) //There's a problem with sensor Rubbish sensor
+
+	s.Id = "asdf"
+	args["Sensor"] = s
+	fmt.Println(gb(constants.SensorProblem2, args)) //There's a problem with sensor Power sensor
+
+
+	// Defining Template Functions
+	funcMap := map[string]interface{}{
+		"T": i18n.IdentityTfunc,
+		"resolveName": func(in map[string]interface{}) map[string]interface{} { return in }, // no op
+	}
+	tmpl := template.Must(template.New("Eng").Funcs(funcMap).Parse(`{{T "sensor_problem_3" (resolveName .)}}`))
+	tmpl2 := template.Must(template.New("Thai").Funcs(funcMap).Parse(`{{T "sensor_problem_3" (resolveName .)}}`))
+	T, _ := i18n.Tfunc("en-gb")
+	H, _ := i18n.Tfunc("th")
+	tmpl.Funcs(map[string]interface{}{
+		"T": T,
+		"resolveName": func(in map[string]interface{}) map[string]interface{} {
+			out := make(map[string]interface{})
+			out["sensorName"] = in["sensorName"]
+			return out
+		},
+	})
+	tmpl2.Funcs(map[string]interface{}{
+		"T": H,
+		"resolveName": func(in map[string]interface{}) map[string]interface{} {
+			out := make(map[string]interface{})
+			out["sensorName"] = in["sensorName"]
+			return out
+		},
+	})
+	args["sensorName"] = "Uber"
+	tmpl.Execute(os.Stdout, args)
+	fmt.Println("\r")
+	tmpl2.Execute(os.Stdout, args)
+}
+
+func (s Sensor) GetName() string {
+	if s.Id == "1234" {
+		return "Cool sensor"
+	}
+	return "Uncool sensor"
 }
 
 func mustCreateTranslationFunc(desiredLang string) i18n.TranslateFunc {
